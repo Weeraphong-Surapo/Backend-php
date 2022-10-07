@@ -116,16 +116,17 @@
                 </div>
 
                 <div class="col-sm-12 col-lg-3 mb-4">    
-                    <label for="prefix">ระดับชั้น</label>          
+                    <label for="prefix">ระดับชั้น</label>
+                    <?php $lavel = array("ปวช","ปวส","ปริญญาตรี","ปริญญาโท","ปริญญาเอก");?>          
                     <select class="form-select form-control" name="lavel" id="lavel" aria-label="Default select example">
-                        <option value="1">ปวช.</option>
-                        <option value="2">ปวส.</option>
-                        <option value="3">ป.ตรี</option>
+                        <?php for($i=0;$i<count($lavel);$i++){?>    
+                    <option value="<?php echo $lavel[$i];?>"><?php echo $lavel[$i];?></option>
+                    <?php }?>
                     </select>
                 </div>
 
                 <div class="col-sm-12 col-lg-3 mb-4">    
-                    <label for="prefix">สาขา</label>          
+                    <label for="prefix">สาขา</label>        
                     <select class="form-select form-control" name="department" id="department" aria-label="Default select example">
                         <option value="1">คอมพิมเตอร์</option>
                         <option value="2">บัญชี</option>
