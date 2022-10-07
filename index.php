@@ -124,7 +124,7 @@
                     <?php }?>
                     </select>
                 </div>
-f
+
                 <div class="col-sm-12 col-lg-3 mb-4">    
                     <label for="prefix">สาขา</label>        
                     <select class="form-select form-control" name="department" id="department" aria-label="Default select example">
