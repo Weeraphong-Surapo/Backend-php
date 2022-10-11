@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="col-sm-12 col-lg-3 mb-4">
-                    <label for="bloodtype">กรุปเลือด</label>
+                    <label for="bloodtype">กรุ๊ปเลือด</label>
                     <input class="form-control" type="text" name="group_blood" id="group_blood" placeholder="กรุปเลือด" required>
                 </div>
 
@@ -142,22 +142,22 @@
 
                 <div class="col-sm-12 col-lg-3 mb-4">
                     <label for="...">รูปถ่าย</label>
-                    <input class="form-control" type="file" name="photo" id="photo" placeholder="..." required>
+                    <input class="form-control" type="file" name="photo[]" id="photo" placeholder="..." required>
                 </div>
                 
                 <div class="col-sm-12 col-lg-3 mb-4">
                     <label for="...">สำเนาบัตรประชาชน</label>
-                    <input class="form-control" type="file" name="photo_card_number" id="photo_card_number" placeholder="..." required>
+                    <input class="form-control" type="file" name="photo[]" id="photo_card_number" placeholder="..." required>
                 </div>
 
                 <div class="col-sm-12 col-lg-3 mb-4">
                     <label for="...">สำเนาทะเบียนบ้าน</label>
-                    <input class="form-control" type="file" name="photo_address" id="photo_address" placeholder="..." required>
+                    <input class="form-control" type="file" name="photo[]" id="photo_address" placeholder="..." required>
                 </div>
 
                 <div class="col-sm-12 col-lg-3 mb-4">
                     <label for="...">สำเนาทรานสคริป</label>
-                    <input class="form-control" type="file" name="photo_result" id="photo_result" placeholder="..." required>
+                    <input class="form-control" type="file" name="photo[]" id="photo_result" placeholder="..." required>
                 </div>
 
                 <div class="d-flex justify-content-center">
@@ -174,22 +174,19 @@
     $(function(){
         $('#formRegister').submit(function(e){
             e.preventDefault();
+            var formData = new FormData(this);
             $.ajax({
                 url:'function/action.php',
                 type:'post',
-                data:new FormData(this),
-                contentType:false,
-                processData:false,
-                success:function(data){
-                    if(data == "yes"){
-                        alert('ลงทะเบียนเรียนเรียบร้อย');
-                    }else if(data == 'error'){
-                        alert('กรุณาเลือกประเภทรูปภาพ');
-                    }else{
-                        alert('ลงทะเบียนไม่สำเร็จ');
-                    }
-                }
-            });
+                data: formData,
+                async: false,
+                success: function(data) {
+                alert(data);
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+                });
         });
     });
 </script>
