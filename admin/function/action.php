@@ -41,8 +41,8 @@
   
         // insert lavel
         if(isset($_POST['action']) && $_POST['action'] == 'insertLavel'){
-            $name  = $_POST['name'];
-            $lavel = $_POST['lavel'];
+            $name  = mysqli_real_escape_string($con,$_POST['name']);
+            $lavel = mysqli_real_escape_string($con,$_POST['lavel']);
             $sql   = "INSERT INTO tb_lavel(name,lavel) VALUES('$name','$lavel')";
             $query = mysqli_query($con,$sql);
             if($query){
@@ -54,13 +54,69 @@
 
         //delete lavel
         if(isset($_POST['action']) && $_POST['action'] == 'deletelavel'){
-            $id = $_POST['id'];
-            $sql = "DELETE FROM tb_lavel WHERE id = $id";
+            $id    = $_POST['id'];
+            $sql   = "DELETE FROM tb_lavel WHERE id = $id";
             $query = mysqli_query($con,$sql);
             if($query){
                 echo 'delete';
             }else{
                 echo 'delete_fail';
             }
+        }
+
+        //edit lavel
+        if(isset($_POST['action']) && $_POST['action'] == 'editlavel'){
+            $id    = $_POST['id'];
+            $sql   = "SELECT * FROM tb_lavel WHERE id = $id";
+            $query = mysqli_query($con,$sql);
+            $row   = mysqli_fetch_array($query);
+            echo json_encode($row);
+        }
+
+        // update Lavel
+        if(isset($_POST['action']) && $_POST['action'] == 'updateLavel'){
+            $id    = $_POST['id'];
+            $name  = mysqli_real_escape_string($con,$_POST['name']);
+            $lavel = mysqli_real_escape_string($con,$_POST['lavel']);
+            $sql   = "UPDATE tb_lavel SET name = '$name', lavel = '$lavel' WHERE id = $id";
+            $query = mysqli_query($con,$sql);
+        }
+
+        // delete student
+        if(isset($_POST['action']) && $_POST['action'] == 'deleteStudent'){
+            $id = $_POST['id'];
+            $sql = "DELETE FROM student WHERE id = $id";
+            $query = mysqli_query($con,$sql);
+        }
+
+        // insert prefix
+        if(isset($_POST['action']) && $_POST['action'] == 'insertPrefix'){
+            $prefixThai = mysqli_real_escape_string($con,$_POST['prefixThai']);
+            $prefixEng = mysqli_real_escape_string($con,$_POST['prefixEng']);
+            $sql = "INSERT INTO tb_prefix(prefixThai,prefixEng) VALUES('$prefixThai','$prefixEng')";
+            $query = mysqli_query($con,$sql);
+        }
+
+        // delete prefix
+        if(isset($_POST['action']) && $_POST['action'] == 'deletePrefix'){
+            $sql = "DELETE FROM tb_prefix WHERE id = '$_POST[id]'";
+            $query = mysqli_query($con,$sql);
+        }
+
+        // edit prefix
+        if(isset($_POST['action']) && $_POST['action'] == 'editPrefix'){
+            $sql = "SELECT * FROM tb_prefix WHERE id = '$_POST[id]'";
+            $query = mysqli_query($con,$sql);
+            $row = mysqli_fetch_array($query);
+            echo json_encode($row);
+        }
+
+        // update prefix
+        if(isset($_POST['action']) && $_POST['action'] == 'updatePrefix'){
+            $prefixThai = mysqli_real_escape_string($con,$_POST['prefixThai']);
+            $prefixEng = mysqli_real_escape_string($con,$_POST['perfixEng']);
+            $id = $_POST['id'];
+            $sql = "UPDATE tb_prefix SET prefixThai = '$prefixThai' , prefixEng = '$prefixEng' WHERE id = '$id'";
+            $query = mysqli_query($con,$sql);
         }
 ?>

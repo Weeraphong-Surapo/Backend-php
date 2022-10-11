@@ -62,6 +62,7 @@ $query = mysqli_query($con,$sql);
     </div>
 </div>
 <?php include "function/modalLavel.php"; ?>
+<?php include "function/modalEditLavel.php";?>
 <?php include('function/footer.php') ?>
 <script src="function/sweet.js"></script>
 <script>
@@ -88,7 +89,42 @@ $query = mysqli_query($con,$sql);
                 processData:false
             });
         });
+
+        $('#formEditLavel').submit(function(e){
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                url:'function/action.php',
+                type:'post',
+                data: formData,
+                async:false,
+                success:function(data){
+                    Swal('success','อัพเดตข้อมูลสำเร็จ','','level.php');
+                        $('#formEditLavel')[0].reset();
+                        $('#editLavel').modal('hide');
+                },
+                cache:false,
+                contentType:false,
+                processData:false
+            });
+        });
         
+        $('.editData').click(function(){
+            var id = $(this).attr('id');
+            var action = 'editlavel';
+            $.ajax({
+                url:'function/action.php',
+                type:'post',
+                data:{id:id,action:action},
+                dataType:'json',
+                success:function(data){
+                    $('#id').val(data.id);
+                    $('#nameEdit').val(data.name);
+                    $('#lavelEdit').val(data.lavel);
+                    $('#editLavel').modal('show');
+                }
+            })
+        });
         $('.deleteData').click(function(){
             var id = $(this).attr('id');
             var action = 'deletelavel';

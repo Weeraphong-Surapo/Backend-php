@@ -4,6 +4,8 @@
 <head>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +24,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
     <link data-require="sweet-alert@*" data-semver="0.4.2" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
     <!-- Custom fonts for this template-->
@@ -93,7 +95,7 @@
 
 
             <li class="nav-item active">
-                <a class="menus nav-link py-2 px-3" href="foreword.php">
+                <a class="menus nav-link py-2 px-3" href="prefix.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>คำนำหน้า</span>
                 </a>
@@ -105,7 +107,7 @@
             <!-- Divider -->
 
             <li class="nav-item active">
-                <a class="menus nav-link py-2 px-3" href="allStudent.php">
+                <a class="menus nav-link py-2 px-3" href="enroll-learn.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>สมัครเรียน</span>
                 </a>
